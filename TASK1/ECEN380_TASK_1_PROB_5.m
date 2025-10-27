@@ -26,3 +26,14 @@ figure;
 zplane(H_combined_num,H_combined_den);
 title("Both Functions Convolved");
 grid on;
+
+%% Finding the roots
+combined_roots = roots(H_combined_den);
+
+% Display the angle of the roots of the combined denominator
+disp('Angle of the roots of the combined denominator:');
+disp(angle(combined_roots));
+
+% Display the absolute value of the roots of the combined denominator
+disp('Absolute value of the roots of the combined denominator:');
+disp(abs(combined_roots));
