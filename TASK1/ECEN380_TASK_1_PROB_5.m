@@ -37,3 +37,12 @@ disp(angle(combined_roots));
 % Display the absolute value of the roots of the combined denominator
 disp('Absolute value of the roots of the combined denominator:');
 disp(abs(combined_roots));
+
+%% Semi-log Plot
+
+f = logspace(0, 5, 100);
+[H,w] = freqs(H_combined_den, H_combined_num, 2*pi*f);
+semilogx(f, 20*log10(abs(H)))
+xlabel('Frequency in Hz');
+ylabel('Magnitude response in dB');
+grid on;
