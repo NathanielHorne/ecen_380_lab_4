@@ -38,11 +38,24 @@ disp(angle(combined_roots));
 disp('Absolute value of the roots of the combined denominator:');
 disp(abs(combined_roots));
 
-%% Semi-log Plot
+%% Bode Plot
 
-f = logspace(0, 5, 100);
+% Starts a figure
+figure;
+% Creates a logarithmic space from 0 - 10kHz with 600 steps
+f = logspace(0, 4, 600);
+% Calculates frequency response of transfer function
+% Saves resultant response to "H" and angular frequency to "w"
 [H,w] = freqs(H_combined_den, H_combined_num, 2*pi*f);
+% Instantiates the X axis as a semilog axis, plotting log value of "H"
 semilogx(f, 20*log10(abs(H)))
+% Sets y range from -10 to 40
+ylim([-10 40]);
+% Sets title
+title("Frequency Response of System from 0Hz to 10KHz");
+% Sets x label
 xlabel('Frequency in Hz');
+% Sets y label
 ylabel('Magnitude response in dB');
+% Turns semilog grid on.
 grid on;
