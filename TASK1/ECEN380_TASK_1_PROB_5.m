@@ -49,7 +49,7 @@ f = logspace(0, 4, 600);
 [H,w] = freqs(H_combined_den, H_combined_num, 2*pi*f);
 % Instantiates the X axis as a semilog axis, plotting log value of "H"
 semilogx(f, -20*log10(abs(H)))
-% Sets y range from -10 to 40
+% Sets y range from -40 to 10
 ylim([-40 10]);
 % Sets title
 title("Frequency Response of System from 0Hz to 10KHz");
