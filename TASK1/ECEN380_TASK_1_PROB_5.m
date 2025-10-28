@@ -48,9 +48,9 @@ f = logspace(0, 4, 600);
 % Saves resultant response to "H" and angular frequency to "w"
 [H,w] = freqs(H_combined_den, H_combined_num, 2*pi*f);
 % Instantiates the X axis as a semilog axis, plotting log value of "H"
-semilogx(f, 20*log10(abs(H)))
+semilogx(f, -20*log10(abs(H)))
 % Sets y range from -10 to 40
-ylim([-10 40]);
+ylim([-40 10]);
 % Sets title
 title("Frequency Response of System from 0Hz to 10KHz");
 % Sets x label
