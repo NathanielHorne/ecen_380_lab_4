@@ -14,7 +14,7 @@ X§U2 N003 OUT Vp Vn OUT level2 Avol=1Meg GBW=10Meg Slew=10Meg Ilimit=25m Rail=0
 V2 Vp 0 1
 R5 Vp 0 1
 R6 0 Vn 1
-.param R=1e3 H1_C1=0.122e-6 H1_C2=0.29e-9 H2_C1=0.560e-9 H2_C2=0.490e-9
+.param R=1e3 H1_C1=0.122e-6 H1_C2=0.19e-9 H2_C1=0.560e-9 H2_C2=0.490e-9
 .ac lin 500 1 40e3
 .lib UniversalOpAmp2.lib
 .backanno
