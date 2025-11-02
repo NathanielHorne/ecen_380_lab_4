@@ -1,0 +1,19 @@
+data = readtable("fhltered_data.csv");
+
+x = data.Var1;
+y = data.Var2;
+
+figure;
+plot(x,y);
+grid on;
+xlabel('Time');
+ylabel('Amplitude');
+title('Amplitude of graph vs. time on a 20 Hz - 20 kHz sweep');
+
+%% Freq. Domain
+
+%x_freq = ((mod(x*100,500) + 24) * ((20e3 - 20)/(500))) + 20;
+
+gain = 20*log(abs(y));
+
+scatter(x_freq, gain);
