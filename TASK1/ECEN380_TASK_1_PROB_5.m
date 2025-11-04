@@ -59,3 +59,54 @@ xlabel('Frequency in Hz');
 ylabel('Magnitude response in dB');
 % Turns semilog grid on.
 grid on;
+
+%% Theoretical Freqs.
+
+freq_1 = 20;
+freq_2 = 3e3;
+freq_3 = 20e3;
+
+% Both Filters
+% Calculate theoretical frequencies for the system
+end_frequency = 30000;
+num_freq_steps = end_frequency/freq_1;
+theoreticalFreqs = linspace(0, end_frequency, num_freq_steps); % Frequency range from 0 to 30kHz
+theoreticalResponse = freqs(H_combined_num, H_combined_den, 2*pi*theoreticalFreqs);
+
+% One Filter
+theoreticalResponse_single = freqs(H1_num, H1_den, 2*pi*theoreticalFreqs);
+
+
+%% Both Filters
+figure();
+semilogx(theoreticalFreqs, 20*log10(abs(theoreticalResponse)));
+xlabel("Frequency (Hz)");
+xlim([0,end_frequency]);
+ylabel("Magnitude (dB)");
+title("Magnitude of Cascaded Theoretical Response");
+grid on;
+
+figure();
+semilogx(theoreticalFreqs, rad2deg(angle(theoreticalResponse)));
+xlim([0,end_frequency]);
+xlabel("Frequency");
+ylabel("Phase Angle (Deg)");
+title("Phase Angle of Cascaded Theoretical Response");
+grid on;
+
+%% One Filter
+figure();
+semilogx(theoreticalFreqs, 20*log10(abs(theoreticalResponse_single)));
+xlim([0,end_frequency]);
+xlabel("Frequency (Hz)");
+ylabel("Magnitude (dB)");
+title("One Stage Magnitude of Theoretical Response");
+grid on;
+
+figure();
+semilogx(theoreticalFreqs, rad2deg(angle(theoreticalResponse_single)));
+xlim([0,end_frequency]);
+xlabel("Frequency (Hz)");
+ylabel("Phase Angle (Deg)");
+title("One Stage Phase Angle of Theoretical Response");
+grid on;
